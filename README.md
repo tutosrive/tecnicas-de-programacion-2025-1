@@ -1,5 +1,5 @@
 # Técnicas De Programación (2025-1)
-![Static Badge](https://img.shields.io/badge/Pyton%203.12.8-Preferred-green) 
+[![Static Badge](https://img.shields.io/badge/Pyton%203.12.8-Preferred-green)](https://docs.python.org/3.12/)
 
 >Todo el código aquí contenido está bajo [**LICENCIA MIT Tutos Rive**](./LICENSE)
 
