@@ -40,3 +40,28 @@ def filled(L: list[int], size: int) -> bool:
     # El tamaño ocupado es igual al tamaño disponible
     list_filled = size == len(L)
     return list_filled
+
+def remove(L: list[int], value: int, size: int):
+    # Buscar la posición del valor requerido
+    pos: int = search(L, value, size)
+    # Si pos es -1, significa que no se encontró el valor
+    if pos == -1:
+        print("El elemento no existe")
+    else:
+        # Asignar un "None" a la posición encontrada
+        L[pos] = None
+
+def search(L: list[int], value: int, size: int):
+    i: int = 1
+    j: int = 0
+    pos: int = -1
+    finded: bool = False
+
+    while (j <= size) and i < len(L) and not finded:
+        if L[j] is not None:
+            j += 1
+            if L[i] == value:
+                finded = True
+                pos = i
+            i +=1
+    return pos
