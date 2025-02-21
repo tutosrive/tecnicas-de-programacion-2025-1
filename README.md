@@ -1,4 +1,5 @@
 # Técnicas De Programación (2025-1)
+![Static Badge](https://img.shields.io/badge/Pyton%203.12.8-Preferred-green) 
 
 >Todo el código aquí contenido está bajo [**LICENCIA MIT Tutos Rive**](./LICENSE)
 
@@ -17,5 +18,3 @@
 Este repositorio albergará los algoritmos propuestos en la clase de **Técnicas De Programación** del semestre **2025-1** de la **Universidad De Caldas**. 
 
 El repositorio inicialmente, contará con la carpeta **classes**, la cual contiene **sub-carpetas** de las clases vistas.
-
-El lenguaje dominante será [**Python v3.12.8**]()
