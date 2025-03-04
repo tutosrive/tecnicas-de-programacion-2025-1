@@ -15,7 +15,7 @@ def isEmpty(top:int) -> bool:
 	isNull: bool = False # Por defecto es vacía
 	# Validar si el TOPE (cima de la PILA) es igual a 0
 	# de ser así, la lista está vacía
-	if top == 0:
+	if top == -1:
 		isNull = not isNull # Negación lógica
 	return isNull
 
@@ -93,7 +93,7 @@ def pop_multi_return(stack: list[int], top: int) -> tuple:
 	# PILA vacía
 	return 0, top, None
 
-def push(stack: list[int], value: int, top: int) -> None:
+def push(stack: list[int], value: int, top: list[int]) -> None:
 	"""Agregar un elemento a la PILA
 
 	### PRECONDICIONES: {`E/S int stack[n]`, `E int value`, `E/S int top`}
@@ -106,13 +106,13 @@ def push(stack: list[int], value: int, top: int) -> None:
 		top (int): Tope de la PILA (cima de la PILA, último elemento, última posición ocupada)
 	"""
 	# Verificar si hay espacio en la pila
-	if isFull(stack, top):
+	if isFull(stack, top[0]):
 		print("La PILA está llena ó verifique el TOPE")
 	else:
 		# "Subir" tope una posición
-		top += 1
+		top[0] += 1
 		# Almacenar el nuevo valor en el tope (la cima de la PILA)
-		stack[top] = value
+		stack[top[0]] = value
 
 # PILA que simula ser un arreglo estático
 #stack:list[int] = [10, 11, 12]
