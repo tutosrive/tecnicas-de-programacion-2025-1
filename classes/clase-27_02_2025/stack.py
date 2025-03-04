@@ -13,7 +13,7 @@ def isEmpty(top:int) -> bool:
 		bool: Booleano que indicará si la lista ESTÁ o NO vacía 
 	"""
 	isNull: bool = False # Por defecto es vacía
-	# Validar si el TOPE (cima de la PILA) es igual a 0
+	# Validar si el TOPE (cima de la PILA) es igual a -1
 	# de ser así, la lista está vacía
 	if top == -1:
 		isNull = not isNull # Negación lógica
