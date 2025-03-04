@@ -15,10 +15,12 @@ class Tester(ut.TestCase):
     
     def test_stack_push(self):
         stack: list[int] = [0, 1, 2, None]
-        push(stack, 12, 2)
+        top:list[int] = [2]
+        push(stack, 12, top)
         self.assertEqual(stack, [0, 1, 2, 12]) # Debe ser verdadero
         stack: list[int] = [0, 1, 2, None]
-        push(stack, 12, 2)
+        top:list[int] = [2]
+        push(stack, 12, top)
         self.assertNotEqual(stack, [0, 1, 2, None]) # Debe ser verdadero
     
     def test_stack_pop_reference(self):
