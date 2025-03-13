@@ -1,2 +1,2 @@
-Juan Eduardo López
-Santiago Rivera Marin
+- Juan Eduardo López
+- Santiago Rivera Marin
