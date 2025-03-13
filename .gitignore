@@ -192,4 +192,11 @@ pyrightconfig.json
 .history
 .ionide
 
-# End of https://www.toptal.com/developers/gitignore/api/python,visualstudiocode
+# Archivos comprimidos de cualquier tipo
+*.zip
+*.tar
+*.gz
+*.bz2
+*.xz
+*.rar
+*.7z
