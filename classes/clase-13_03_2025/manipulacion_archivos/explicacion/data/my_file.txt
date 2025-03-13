@@ -1,0 +1,3 @@
+Para lectura de archivos: 'r'
+Para sobreescritura de archivos: 'w'
+Para agregar sin sobreescribir: 'a'
