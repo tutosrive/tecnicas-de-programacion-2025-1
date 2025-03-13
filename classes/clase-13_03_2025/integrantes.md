@@ -1,2 +1,2 @@
-Juan Eduardo López (37696)
-Santiago Rivera Marin (55296)
+Juan Eduardo López
+Santiago Rivera Marin
