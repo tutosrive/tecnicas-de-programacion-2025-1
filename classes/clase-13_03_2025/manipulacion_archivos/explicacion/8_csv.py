@@ -1,6 +1,6 @@
 import csv  # Importar la librería csv
 
-data_path = './manipulacion_archivos/explicacion/data/data.csv'
+data_path = './explicacion/data/data.csv'
 
 # Escribir en un archivo CSV
 with open(data_path, 'w', newline='') as csvfile:

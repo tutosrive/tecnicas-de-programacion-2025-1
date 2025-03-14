@@ -6,7 +6,7 @@ Objetivo:
     2. Escribir varias líneas de texto en el archivo.
     3. Leer el contenido del archivo línea por línea y mostrarlo en la consola
 """
-data_exercise_path = './manipulacion_archivos/explicacion/ejercicios_practicos/data'
+data_exercise_path = './explicacion/ejercicios_practicos/data'
 
 # Abrir el archivo 'mi_archivo.txt' en modo de escritura (Con acentos)
 with open(f'{data_exercise_path}/mi_archivo.txt', 'w', encoding="utf-8") as archivo:

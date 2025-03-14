@@ -1,5 +1,5 @@
 # Ruta RELATIVA del archivo
-file_path:str = "./manipulacion_archivos/explicacion/data/products.txt"
+file_path:str = "./explicacion/data/products.txt"
 
 # Crear archivo y escribir
 file = open(file_path, "w")

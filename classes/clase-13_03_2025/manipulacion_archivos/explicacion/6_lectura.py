@@ -3,7 +3,7 @@ read(): Lee todo el contenido.
 readline(): Lee una línea a la vez.
 readlines(): Lee todas las líneas y las guarda en una lista.
 """
-file_path:str = './manipulacion_archivos/explicacion/data/products.txt'
+file_path:str = './explicacion/data/products.txt'
 # Leer todo el contenido
 with open(file_path, 'r') as file:
     content = file.read()

@@ -6,7 +6,7 @@ Modos:
     - 'w': Sobrescribe el archivo existente.
     - 'a': Agrega contenido al final del archivo
 """
-file_path = './manipulacion_archivos/explicacion/data/new_my_file.txt'
+file_path = './explicacion/data/new_my_file.txt'
 
 # Escribir en un archivo (sobrescribe)
 with open(file_path, 'w') as file:

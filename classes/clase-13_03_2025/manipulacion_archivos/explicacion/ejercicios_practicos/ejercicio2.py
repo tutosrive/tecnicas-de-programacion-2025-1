@@ -6,9 +6,9 @@ Objetivo:
     2. Leer los datos de este archivo.
     3. Calcular el promedio de una columna numérica específica (por ejemplo, "Edad").
 """
-data_path = './manipulacion_archivos/explicacion/ejercicios_practicos/data'
-
 import csv  # Importar el módulo CSV para manipular archivos CSV
+
+data_path = './explicacion/ejercicios_practicos/data'
 
 # Paso 1: Crear y escribir en el archivo CSV
 with open(f'{data_path}/datos.csv', 'w', newline='') as archivo_csv:

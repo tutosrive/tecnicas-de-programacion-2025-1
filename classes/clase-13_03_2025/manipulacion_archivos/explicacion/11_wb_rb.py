@@ -1,4 +1,4 @@
-data_path = './manipulacion_archivos/explicacion/data/'
+data_path = './explicacion/data/'
 
 # Copiar una imagen usando modos binarios
 with open(f'{data_path}/ingesrm.png', 'rb') as source:
