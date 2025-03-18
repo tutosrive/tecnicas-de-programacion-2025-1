@@ -12,7 +12,7 @@ def generate_email(name:str, lastname:str, code_student: str) -> str:
     # Dar formato al Correo Electrónico
     email:str = f'{name}_{lastname}.{code_student}@ucaldas.edu.co'
     # Retornar correo en minúsculas
-    return email.lower()
+    return email.lower().replace(' ', '')
 
 def list_descendent() -> None:
     pass
