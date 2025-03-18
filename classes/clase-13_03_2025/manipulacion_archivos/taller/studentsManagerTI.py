@@ -6,10 +6,12 @@ import files.calculation as calc
 data_path:str = "./taller/data"
 student_file:str = f'{data_path}/students.csv'
 notes_file:str = f'{data_path}/notes.csv'
+ranking_file:str = f'{data_path}/ranking.csv'
 
 # Encabezados de archivos
 file_man.write_csv(student_file, True, ["identification", "name", "lastname", "age", "code_id", "email"])
 file_man.write_csv(notes_file, True, ["period1", "period2", "period3", "final_note"])
+file_man.write_csv(ranking_file, True, ['final_note', 'students_list'], 'w')
 
 for i in range(25):
     # Entrada de datos de usuario (nombre, edad, e.t.c.)
@@ -43,12 +45,16 @@ notes:list = file_man.read_csv(notes_file)[1]
 students:list = file_man.read_csv(student_file)[1]
 
 # Recorer la matriz de estudiantes obtenidos
-for period, students in enumerate(calc.calc_better_by_period(notes, students)):
+for period, students_row in enumerate(calc.calc_better_by_period(notes, students)):
     # Organizar mensaje según cantidad de estudiantes
-    msg:str = f"Mejores estudiantes periodo {period + 1} son" if len(students) > 1 else f"Mejor estudiante periodo {period + 1} es"
+    msg:str = f"Mejores estudiantes periodo {period + 1} son" if len(students_row) > 1 else f"Mejor estudiante periodo {period + 1} es"
     # Imprimir estudiante/s separados por coma
-    print(f'{msg}: {', '.join(students)}')
+    print(f'{msg}: {', '.join(students_row)}')
 
 # Promedio general del grupo
 general_prom:float = calc.calc_general_prom(notes)
 print(f'Promedio general del grupo de estudiantes: {general_prom}')
+
+# Escribir lista ordenada descendentemente de las notas finales y sus estudiantes
+notes_sorted_and_students:list = gener.list_descendent(notes, students)
+file_man.write_csv(ranking_file, False, notes_sorted_and_students, 'a')
