@@ -1,0 +1,263 @@
+math — Mathematical functions
+Este módulo proporciona acceso a las funciones matemáticas definidas en el estándar de C.
+
+math.ceil(x)
+Retorna el «techo» de x, el número entero más pequeño que es mayor o igual que x. Si x no es un flotante, delega en x.__ceil__, que debería retornar un valor Integral.
+
+math.comb(n, k)
+Retorna el número de formas posibles de elegir k elementos de n, de forma ordenada y sin repetición.
+
+math.copysign(x, y)
+Retorna un flotante con la magnitud (valor absoluto) de x pero el signo de y. En plataformas que admiten ceros con signo, copysign(1.0, -0.0) retorna -1.0.
+
+math.fabs(x)
+Retorna el valor absoluto de x.
+
+math.factorial(n)
+Retorna el factorial de n como un número entero. Lanza una excepción ValueError si n no es un entero o negativo.
+
+math.floor(x)
+Retorna el «suelo» de x, el primer número entero menor o igual que x. Si x no es un flotante, delega en x.__floor__, que debería retornar un valor Integral.
+
+math.fmod(x, y)
+Return the floating-point remainder of x / y, as defined by the platform C library function fmod(x, y). Note that the Python expression x % y may not return the same result. The intent of the C standard is that fmod(x, y) be exactly (mathematically; to infinite precision) equal to x - n*y for some integer n such that the result has the same sign as x and magnitude less than abs(y). Python’s x % y returns a result with the sign of y instead, and may not be exactly computable for float arguments. For example, fmod(-1e-100, 1e100) is -1e-100, but the result of Python’s -1e-100 % 1e100 is 1e100-1e-100, which cannot be represented exactly as a float, and rounds to the surprising 1e100. For this reason, function fmod() is generally preferred when working with floats, while Python’s x % y is preferred when working with integers.
+
+math.frexp(x)
+Retorna la mantisa y el exponente de x como el par (m, e). m es un flotante y e es un número entero tal que x == m * 2**e exactamente. Si x es cero, retorna (0.0, 0), y retorna 0.5 <= abs(m) < 1 en caso contrario. Se utiliza como una forma portable de «extraer» la representación interna de un flotante.
+
+math.fsum(iterable)
+Return an accurate floating-point sum of values in the iterable. Avoids loss of precision by tracking multiple intermediate partial sums.
+
+For further discussion and two alternative approaches, see the ASPN cookbook recipes for accurate floating-point summation.
+math.gcd(*integers)
+math.isclose(a, b, *, rel_tol=1e-09, abs_tol=0.0)
+Retorna True si los valores a y b están cerca el uno del otro y False en caso contrario.
+
+
+Ver también PEP 485 – Una función para comprobar la igualdad aproximada
+math.isfinite(x)
+Retorna True si x no es infinito ni NaN, o False en caso contrario. (Ten en cuenta que 0.0 es considerado finito.)
+
+Added in version 3.2.
+
+math.isinf(x)
+Retorna True si x es infinito positivo o negativo, o False en caso contrario.
+
+math.isnan(x)
+Retorna True si x es NaN (not a number, en español: no es un número), o False en caso contrario.
+
+math.isqrt(n)
+Retorna la raíz cuadrada del número entero no negativo n. Es el resultado de aplicar la función suelo al valor exacto de la raíz cuadrada de n, o de forma equivalente, el mayor entero a tal que a² ≤ n.
+
+Para algunas aplicaciones, puede ser más conveniente tener el menor número entero a tal que n ≤ a², en otras palabras, el resultado de aplicar la función techo a la raíz cuadrada exacta de n. Para n positivo, esto se puede calcular usando a = 1 + isqrt(n - 1).
+
+Added in version 3.8.
+
+math.lcm(*integers)
+Retorna el mínimo común múltiplo de los argumentos enteros. Si todos los argumentos no son cero, entonces el valor retornado es el entero positivo más pequeño que es un múltiplo de todos los argumentos. Si cualquiera de los argumentos es cero, entonces el valor retornado es 0. lcm() sin argumentos retorna 1.
+
+Added in version 3.9.
+
+math.ldexp(x, i)
+Retorna x * (2**i). Esta es esencialmente la función inversa de frexp().
+
+math.modf(x)
+Retorna la parte fraccionaria y entera de x. Ambos resultados son flotantes y tienen el mismo signo que x .
+
+math.nextafter(x, y, steps=1)
+Retorna el valor en coma flotante steps pasos después x hacia y.
+
+math.nextafter(x, math.inf) va hacia el infinito positivo.
+
+math.nextafter(x, -math.inf) va hacia el infinito negativo.
+
+math.nextafter(x, 0.0) va hacia cero.
+
+math.nextafter(x, math.copysign(math.inf, x)) se aleja de cero.
+
+Ver también math.ulp().
+
+Added in version 3.9.
+
+Distinto en la versión 3.12: Añadido el argumento steps.
+
+math.perm(n, k=None)
+Retorna el número de formas posibles de elegir k elementos de n elementos, sin repetición y en orden.
+
+math.prod(iterable, *, start=1)
+Calcula el producto de todos los elementos en la entrada iterable. El valor start predeterminado para el producto es 1.
+
+math.remainder(x, y)
+Retorna el resto o residuo según la norma IEEE 754 de x con respecto a y. Para un valor x finito y un valor y finito distinto de cero, es la diferencia x - n * y, donde n es el número entero más cercano al valor exacto del cociente x / y. Si x / y está exactamente en mitad de dos enteros consecutivos, el entero par más cercano se utiliza para n. Por lo tanto, el residuo r = remainder(x, y) siempre satisface abs(r) <= 0.5 * abs(y).
+
+Los casos especiales siguen el estándar IEEE 754: en particular, remainder(x, math.inf) es x para todo x finito, y remainder(x, 0) junto a remainder(math.inf, x) lanzan una excepción ValueError para todo x que no sea NaN. Si el resultado de la operación residuo es cero, este cero tendrá el mismo signo que x.
+
+On platforms using IEEE 754 binary floating point, the result of this operation is always exactly representable: no rounding error is introduced.
+
+Added in version 3.7.
+
+math.sumprod(p, q)
+
+sum(itertools.starmap(operator.mul, zip(p, q, strict=True)))
+
+math.trunc(x)
+Retorna x con la parte fraccionaria eliminada, dejando la parte entera.Esto redondea hacia 0: trunc() es equivalente a floor() para x positivo y equivalente a ceil() para x negativo. Si x no es un flotante, delega a x.__trunc__, que debería retornar un valor Integral.
+
+math.ulp(x)
+Retorna el valor del bit menos significativo del flotante x:
+
+Ver también math.nextafter() y sys.float_info.epsilon.
+
+math.cbrt(x)
+Retorna la raíz cúbica de x.
+
+Added in version 3.11.
+
+math.exp(x)
+Retorna e elevado a la x potencia, dónde e = 2.718281… es la base de los logaritmos naturales. Esto generalmente es más preciso que math.e ** x o pow(math.e, x).
+
+math.exp2(x)
+Retorna 2 elevado a la potencia x.
+
+Added in version 3.11.
+
+math.expm1(x)
+Retorna e elevado a la x potencia, menos 1. Aquí e es la base de los logaritmos naturales. Para flotantes x pequeños, la resta en exp(x) - 1 puede resultar en una pérdida significativa de precisión; la función expm1() proporciona una forma de calcular este valor con una precisión total:
+
+>>>
+from math import exp, expm1
+
+math.log(x[, base])
+Con un argumento, retorna el logaritmo natural de x (en base e).
+
+Con dos argumentos, retorna el logaritmo de x en la base dada, calculado como log(x)/log(base).
+
+math.log1p(x)
+Retorna el logaritmo natural de 1+x (base e). El resultado se calcula de forma precisa para x cercano a cero.
+
+math.log2(x)
+Retorna el logaritmo en base 2 de x. Esto suele ser más preciso que log(x, 2).
+
+Added in version 3.3.
+
+Ver también int.bit_length() retorna el número de bits necesarios para representar un entero en binario, excluyendo el signo y los ceros iniciales.
+math.log10(x)
+Retorna el logaritmo en base 10 de x. Esto suele ser más preciso que log(x, 10).
+
+math.pow(x, y)
+Retorna x elevado a la potencia y. Los casos excepcionales siguen el estándar IEEE 754 en la medida de lo posible. En particular, pow(1.0, x) y pow(x, 0.0) siempre retornan 1.0, incluso cuando x es cero o NaN. Si tanto x como y son finitos, x es negativo e y no es un número entero, entonces pow(x, y) no está definido y se lanza una excepción ValueError.
+
+A diferencia del operador incorporado **, math.pow() convierte ambos argumentos al tipo float. Utiliza ** o la función incorporada pow() para calcular potencias enteras exactas.
+
+Distinto en la versión 3.11: Los casos especiales pow(0.0, -inf) y pow(-0.0, -inf) se cambiaron para devolver inf en lugar de generar ValueError, por consistencia con IEEE 754.
+
+math.sqrt(x)
+Retorna la raíz cuadrada de x.
+
+Funciones trigonométricas
+math.acos(x)
+Retorna el arcocoseno de x, en radianes. El resultado está entre 0 y pi.
+
+math.asin(x)
+Retorna el arcoseno de x, en radianes. El resultado está entre -pi/2 y pi/2.
+
+math.atan(x)
+Retorna la arcotangente de x, en radianes. El resultado está entre -pi/2 y pi/2.
+
+math.atan2(y, x)
+Retorna atan(y / x), en radianes. El resultado está entre -pi y pi. El vector del plano que va del origen al punto (x, y), forma este ángulo con el eje X positivo. La ventaja de atan2() es que el signo de ambas entradas es conocido, por lo que se puede calcular el cuadrante correcto para el ángulo. Por ejemplo, atan(1) y atan2(1, 1) son ambas pi/4, pero atan2(-1, -1) es -3*pi/4.
+
+math.cos(x)
+Retorna el coseno de x radianes.
+
+math.dist(p, q)
+Retorna la distancia euclidiana entre dos puntos p y q, cada uno de ellos dado como una secuencia (o iterable) de coordenadas. Los dos puntos deben tener la misma dimensión.
+
+Aproximadamente equivalente a:
+
+sqrt(sum((px - qx) ** 2.0 for px, qx in zip(p, q)))
+Added in version 3.8.
+
+math.hypot(*coordinates)
+Retorna la norma euclidiana, sqrt(sum(x**2 for x in coordinates)). Esta es la longitud del vector que va desde el origen hasta el punto dado por las coordenadas.
+
+math.sin(x)
+Retorna el seno de x radianes.
+
+math.tan(x)
+Retorna la tangente de x radianes.
+
+Conversión angular
+math.degrees(x)
+Convierte el ángulo x de radianes a grados.
+
+math.radians(x)
+Convierte el ángulo x de grados a radianes.
+
+math.acosh(x)
+Retorna el coseno hiperbólico inverso de x.
+
+math.asinh(x)
+Retorna el seno hiperbólico inverso de x.
+
+math.atanh(x)
+Retorna la tangente hiperbólica inversa de x.
+
+math.cosh(x)
+Retorna el coseno hiperbólico de x.
+
+math.sinh(x)
+Retorna el seno hiperbólico de x.
+
+math.tanh(x)
+Retorna la tangente hiperbólica de x.
+
+Funciones especiales
+math.erf(x)
+Retorna la función error en x.
+
+math.erfc(x)
+Retorna la función error complementaria en x. La función error complementaria se define como 1.0 - erf(x). Se usa para valores grandes de x donde una resta de 1 causaría una pérdida de presición.
+
+Added in version 3.2.
+
+math.gamma(x)
+Retorna la función gamma en x.
+
+Added in version 3.2.
+
+math.lgamma(x)
+Retorna el logaritmo natural del valor absoluto de la función gamma en x.
+
+Added in version 3.2.
+
+Constantes
+math.pi
+La constante matemática π = 3.141592…, hasta la precisión disponible.
+
+math.e
+La constante matemática e = 2.718281…, hasta la precisión disponible.
+
+math.tau
+La constante matemática τ = 6.283185…, hasta la precisión disponible. Tau es una constante del círculo igual a 2π, la razón entre la circunferencia de un círculo y su radio. Para obtener más información sobre Tau, consulta el video de Vi Hart, Pi is (still) Wrong, y comienza a celebrar el el día de Tau ¡comiendo el doble de tarta!
+
+math.inf
+Un valor infinito positivo en punto flotante. (Para un valor infinito negativo, usa -math.inf.) Equivalente a la salida de float('inf').
+
+Added in version 3.5.
+
+math.nan
+Un valor de coma flotante «no es un número» (NaN). Equivalente a la salida de float('nan'). Debido a los requisitos del estándar IEEE-754, math.nan y float('nan') no se consideran iguales a ningún otro valor numérico, incluidos ellos mismos. Para verificar si un número es NaN, use la función isnan() para probar NaN en lugar de is o ==. Ejemplo:
+
+>>>
+import math
+math.nan == math.nan
+False
+float('nan') == float('nan')
+False
+math.isnan(math.nan)
+True
+math.isnan(float('nan'))
+True
+
+El módulo math consiste principalmente en delgados envoltorios alrededor de las funciones matemáticas de la biblioteca de C de la plataforma. El comportamiento en casos excepcionales sigue el Anexo F del estándar C99 cuando corresponda. La implementación actual lanzará un ValueError para operaciones no válidas como sqrt(-1.0) o log(0.0) (donde el estándar C99 recomienda señalar que la operación no es válida o que hay división entre cero), y un OverflowError para aquellos resultados de desbordamiento (por ejemplo, exp(1000.0)). No se retornará NaN para ninguna de las funciones anteriores, a no ser que al menos uno de los argumentos de la función sea NaN. En este caso, la mayoría de las funciones retornan NaN, pero de nuevo (de acuerdo con el apéndice F del estándar C99) hay algunas excepciones a esta regla, por ejemplo pow(float('nan'), 0.0) o hypot(float('nan'), float('inf')).
