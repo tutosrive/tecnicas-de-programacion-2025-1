@@ -162,3 +162,51 @@ PARA cada combinacion EN combinations HACER
 FIN PARA
 ```
 
+## Ejercicio 4
+
+Para el ejercicio de la **contraseña**, permitir que el usuario defina los caracteres a usar y que
+determine el tamaño de la contraseña. Decir cuantas posibilidades hay y mostrarlas.
+
+### Pseudocódigo
+
+```pseudocode
+DEFINIR caracteres COMO VECTOR
+DEFINIR tamaño, total_posibilidades COMO ENTERO
+DEFINIR combinaciones COMO MATRIZ
+
+# Leer los caracteres a usar
+LEER caracteres
+
+# Leer el tamaño de la contraseña
+LEER tamaño
+
+# Calcular el total de posibilidades
+total_posibilidades <- longitud(caracteres) ^ tamaño
+
+# Función recursiva para generar combinaciones
+FUNCION generar_combinaciones(caracteres, combinacion_actual, tamaño, combinaciones)
+    SI longitud(combinacion_actual) = tamaño ENTONCES
+        AGREGAR combinacion_actual A combinaciones
+        RETORNAR
+    FIN SI
+
+    PARA i <- 0 HASTA longitud(caracteres) - 1 HACER
+        nueva_combinacion <- combinacion_actual + caracteres[i]
+        generar_combinaciones(caracteres, nueva_combinacion, tamaño, combinaciones)
+    FIN PARA
+FIN FUNCION
+
+# Inicializar combinaciones
+combinaciones <- []
+
+# Llamar a la función para generar combinaciones
+generar_combinaciones(caracteres, "", tamaño, combinaciones)
+
+# Mostrar el total de posibilidades
+ESCRIBIR "Total de posibilidades: ", total_posibilidades
+
+# Mostrar combinaciones
+PARA cada combinacion EN combinaciones HACER
+    ESCRIBIR combinacion
+FIN PARA
+```
