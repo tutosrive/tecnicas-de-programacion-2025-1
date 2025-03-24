@@ -38,7 +38,7 @@ Dado un conjunto de **n** elementos realizar un algoritmo el cual calcule todas 
 
 Ejemplo:
 
-Entrada={a,b,c}
+`Entrada={a,b,c}`
 
 Salida=
 
@@ -58,18 +58,6 @@ matriz[9][3]
 ### Pseudocódigo
 
 ```pseudocode
-int pow(E int base, E int exponent){
-	"""Calcular la potencia de un número 'base' elevado a un 'expontent'"""
-	x <- 1
-	PARA i <- 1 HASTA exponent CON PASO 1 HACER
-		x <- x * base
-	FIN PARA
-	RETURN x
-}
-
----
-// main()
-
 DEFINIR m, n, col1, col2, col3 repetitions COMO ENTERO
 DEFIRNI elements, generator COMO VECTOR[3]
 DEFINIR output COMO MATRIZ[m][n]
@@ -114,4 +102,27 @@ PARA i <- 1 HASTA m CON PASO 1 HACER
 	col1 <- 0
 
 ESCRIBIR(output)
+```
+
+
+
+
+## Ejercicio 3
+
+Dado un conjunto de **m** elementos realizar un algoritmo el cual calcule todas las **combinaciones** de **n** elementos **SIN** repetición.
+
+Ejemplo:
+
+`Entrada={a,b,c}` la idea es formar tuplas de dos elementos
+
+|Salida|
+|--|
+|ab|
+|ac|
+|bc|
+
+### Pseudocódigo
+
+```pseudocode
+
 ```
