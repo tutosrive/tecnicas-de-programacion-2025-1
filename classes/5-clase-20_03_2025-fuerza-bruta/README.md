@@ -124,5 +124,41 @@ Ejemplo:
 ### Pseudocódigo
 
 ```pseudocode
+DEFINIR m, n COMO ENTERO
+DEFINIR elements COMO VECTOR[m]
+DEFINIR combinations COMO MATRIZ
 
+# Número de elementos en el conjunto
+m <- 3
+
+# Número de elementos en cada combinación
+n <- 2
+
+# Elementos del conjunto
+elements <- ['a', 'b', 'c']
+
+# Función recursiva para generar combinaciones
+FUNCION generar_combinaciones(elements, combinacion_actual, inicio, n)
+    SI longitud(combinacion_actual) = n ENTONCES
+        AGREGAR combinacion_actual A combinations
+        RETORNAR
+    FIN SI
+
+    PARA i <- inicio HASTA longitud(elements) - 1 HACER
+        nueva_combinacion <- combinacion_actual + elements[i]
+        generar_combinaciones(elements, nueva_combinacion, i + 1, n)
+    FIN PARA
+FIN FUNCION
+
+# Inicializar combinaciones
+combinations <- []
+
+# Llamar a la función para generar combinaciones
+generar_combinaciones(elements, "", 0, n)
+
+# Mostrar combinaciones
+PARA cada combinacion EN combinations HACER
+    ESCRIBIR combinacion
+FIN PARA
 ```
+

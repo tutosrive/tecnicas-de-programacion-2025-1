@@ -15,10 +15,10 @@ def pow(base:int, exponent:int) -> int:
 m:int = 9
 
 # Ciclo interno (j)
-n:int = 3
+n:int = 4
 
 # Elementos con los cuales se trajará
-elements:list[str] = ['a', 'b', 'c']
+elements:list[str] = ['a', 'b', 'c', 'd']
 
 # Matriz "vacía" que almacenará la salida
 output: list[list[str]] = [[None] for _ in range(m)]
